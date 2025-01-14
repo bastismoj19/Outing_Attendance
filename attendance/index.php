@@ -1,3 +1,34 @@
+<?php
+    // Creates database automatically 
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "loginattendance";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Read SQL file
+    $sql = file_get_contents('loginattendance.sql');
+
+    // Execute SQL script
+    if ($conn->multi_query($sql)) {
+        do {
+            // Store first result set
+            if ($result = $conn->store_result()) {
+                $result->free();
+            }
+        } while ($conn->more_results() && $conn->next_result());
+    }
+
+    $conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +36,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="bulma.css">
+    <link rel="icon" href="funai.png" type="image/png">
     <script src="jquery.js"></script>
     <style>
         * {
@@ -12,7 +44,7 @@
             margin: 0;
         }
         body {
-            background: url('beach.jpg') no-repeat;
+            background: url('funai.jpg') no-repeat;
             background-size: cover;
             background-position: center;
             display: flex;

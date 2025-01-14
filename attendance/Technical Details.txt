@@ -1,0 +1,15 @@
+Details: 
+	This Project is for Outing Attendance and is a one time used only. If used again then delete data from MYSQL and use it again. 
+	This is a barcode scanner project. Can scan Funai employee badge id. 
+
+How to Use this:
+	1. Put this file in the "xampp/htdocs" folder that is located in the Drive C or D for it to work.
+	2. Go to xampp folder and find the xampp-control.exe. Then turn on the Apache and Mysql for this to run.
+	3. Go to any browser and type "localhost/phpmyadmin" to go to the mysql database.
+	4. Import the mysql file that can be found in the same folder into the mysql database.
+	5. Then type the location of your file directory to the browser with a server of localhost. Ex.(localhost/"file location").
+
+Made by: 
+	Walter James T. Bastismo a Computer Engineering student of CITE Technical Institute
+	OJT Trainee of Funai Electric Cebu Inc.
+	IT Intern - Web Application Developer
