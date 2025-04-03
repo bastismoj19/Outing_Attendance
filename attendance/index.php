@@ -97,6 +97,45 @@
             });
         });
 
+        <td><input style="background-color: transparent;" type="text" id="scannerInput" id="scannerInput" class="input scannerInput is-success" autofocus></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        $(function() {
+            $(".scannerInput").keydown(function(e) {
+                
+                if(e.which == 13) {
+                    
+                    var scannerInput = $(".scannerInput").val();
+                    
+                    $.ajax({
+                        url: "attendanceLog.php",
+                        data: {
+                            emp_id: scannerInput
+                        },
+                        datatype: "json",
+                        method: "post",
+                        success: function(data_from_other_page){
+                            alert(data_from_other_page);
+                            location.reload();
+                        }
+                    });
+                }
+            });
+        });
+
+        document.addEventListener("click", function(event) {
+            const firstNameInput = document.getElementById("scannerInput");
+            
+            // Check if the clicked element is NOT the first name input
+            if (event.target !== firstNameInput) {
+                firstNameInput.focus(); // Refocus on the input field
+            }
+        });
+
     </script>
 </body>
 </html>
